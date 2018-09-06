@@ -1,6 +1,6 @@
 {
   "name": "node-pkg-installer",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "A nodejs module for installing local OS software using known package managers or shell scripts",
   "main": "installer.js",
   "scripts": {

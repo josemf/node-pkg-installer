@@ -2,9 +2,7 @@ require('dotenv').config();
 
 const config = {
     
-    packages: {
-
-        
+    packages: {        
         ca_certificates: {
             apt: 'ca-certificates'
         },
@@ -47,11 +45,11 @@ const config = {
 
         software_properties_common: {
             apt: 'software-properties-common'
-        }
+        },
         
         sudo: {
             apt: 'sudo'
-        }
+        },
 
         tmux: {
             apt: 'tmux'
