@@ -146,6 +146,10 @@ class Installer {
     }    
 }
 
-module.exports = function (logger) {
+function factory (logger) {
     return new Installer(logger);
 };
+
+factory.Ingredient = IngredientInterface;
+
+module.exports = factory; 
