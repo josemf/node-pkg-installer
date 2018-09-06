@@ -1,0 +1,25 @@
+{
+  "name": "node_pkg_installer",
+  "version": "0.5.0",
+  "description": "A nodejs module for installing local OS software using known package managers or shell scripts",
+  "main": "installer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemf/node-pkg-installer.git"
+  },
+  "author": "josemf",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/josemf/node_pkg_installer/issues"
+  },
+  "homepage": "https://github.com/josemf/node_pkg_installer#readme",
+  "dependencies": {
+    "command-exists": "^1.2.7",
+    "dotenv": "^6.0.0",
+    "getos": "^3.1.0",
+    "parse-semver": "^1.1.1"
+  }
+}
