@@ -2,7 +2,12 @@ require('dotenv').config();
 
 const config = {
     
-    packages: {        
+    packages: {
+
+        build_essential: {
+            apt: 'build-essential'
+        },
+        
         ca_certificates: {
             apt: 'ca-certificates'
         },

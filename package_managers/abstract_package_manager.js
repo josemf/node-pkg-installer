@@ -81,14 +81,14 @@ class AbstractPackageManager {
                 let command = this._serializesCommandline(spec, app, name, version, options),
                     envs    = this._getEnvironmentVariables(spec, app, name, version, options),
                     child   = spawn(this._command, command, {
-//                        pwd: process.env.PROJECT_ROOT,
-                        env: process.environment 
+                        pwd: process.env.PROJECT_ROOT,
+                        env: envs 
                     }),
                     output  = '', error = '';                
                 
                 console.log("Executing CMD", command, envs);
                 
-                child.on('exit', function (code, signal) {
+                child.on('close', function (code) {
 
                     if(code > 0) {
                         console.log(`Package ${name} failed to install with code ${code} and output: `);
@@ -98,23 +98,29 @@ class AbstractPackageManager {
                     }
                     
                     console.log("Exiting from command to install", app);
+                    console.log("Error: " + error);
                     
                     return resolve(output);
                 });
 
-                child.on('error', function (code, signal) {
-
-                    console.log("**** Some error", error);
-                    
-                    reject([code, error]);
-                });
-
                 child.stdout.on('data', (data) => {
-                    output += data;
+
+                    let text = data.toString().trim();                    
+                    if(text) {
+                        console.log('#', text);
+                    }
+                    
+                    output += text;
                 });
 
                 child.stderr.on('data', (data) => {
-                    error += data;
+
+                    let text = data.toString().trim();                    
+                    if(text) {
+                        console.log('!', text);
+                    }
+                    
+                    error += text;
                 });                
             });
         });

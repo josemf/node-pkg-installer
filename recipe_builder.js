@@ -203,8 +203,6 @@ class RecipeBuilder {
                     console.log("Chain next package", pi.name());
                     
                     let results = await this._buildPackage(pi);
-
-                    console.log(results)
                     
                     console.log("End build package", pi.name());                    
                 });
